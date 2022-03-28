@@ -16,13 +16,9 @@ use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 
 class AuthenticationController extends AbstractController
 {
-    /**
-     *
-     */
+
     private $passwordEncoder;
-    /**
-     *
-     */
+
     private $jwtEncoder;
 
     public function __construct(
