@@ -44,11 +44,9 @@ class AuthenticationController extends AbstractController
             $request->getContent(),
             true
         );
-
-
         $user = new User();
-
         $checkUser =  $userRepository->findOneBy(['email'=>$data['email']]);
+
         if(!$checkUser) {
             $user->setEmail($data['email']);
             $user->setName($data['name']);
@@ -60,7 +58,6 @@ class AuthenticationController extends AbstractController
         }else{
             $user = $checkUser;
         }
-
 
         $jwt = $jwtManager->create($user);
 
