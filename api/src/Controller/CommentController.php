@@ -46,19 +46,6 @@ class CommentController extends AbstractController
         $comment->setCreatedBy($this->getUser());
         $commentRepository->add($comment);
         return $this->json($comment->toJson());
-
-/*        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $commentRepository->add($comment);
-            return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);
-        }
-        return $this->json([$comment,$request->request->all(), $this->getUser()]);
-        return $this->renderForm('comment/new.html.twig', [
-            'comment' => $comment,
-            'form' => $form,
-        ]);*/
     }
 
     /**
@@ -93,22 +80,4 @@ class CommentController extends AbstractController
             return $entity->toJson();
         }, $entities);
     }
-
-    /*public function edit(Request $request, Comment $comment, CommentRepository $commentRepository): Response
-    {
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $commentRepository->add($comment);
-            return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);
-
-        }
-
-        return $this->renderForm('comment/edit.html.twig', [
-            'comment' => $comment,
-            'form' => $form,
-        ]);
-    }*/
 }
