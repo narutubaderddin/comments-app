@@ -34,3 +34,7 @@ npm start # to start the local server (this project uses create-react-app)
 
 Runs the app in development mode.
 Open http://localhost:3000 to view it in the browser.
+
+### Demo
+
+https://www.loom.com/share/7757a58fbbb840c3a54742fbbe592672
