@@ -45,22 +45,8 @@ class AuthenticationController extends AbstractController
             true
         );
 
-        //$form = $this->createForm(UserType::class, new User());
-
-        //$form->submit($data);
-
 
         $user = new User();
-        /*$form = $this->createForm(UserType::class, $usr);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->add($usr);
-            //return $this->redirectToRoute('app_test_index', [], Response::HTTP_SEE_OTHER);
-            return $this->json([
-                'message' => $data
-            ]);
-        }*/
 
         $checkUser =  $userRepository->findOneBy(['email'=>$data['email']]);
         if(!$checkUser) {
@@ -77,21 +63,10 @@ class AuthenticationController extends AbstractController
 
 
         $jwt = $jwtManager->create($user);
-        /*$token = $this->jwtEncoder->encode(
-            [
-                'username' => 'eee',
-                'exp'      => time() + 3600,
-            ]
-        );*/
 
         return $this->json([
             'token' =>$jwt
         ]);
-
-
-        /*return $this->render('authentication/index.html.twig', [
-            'controller_name' => 'AuthenticationController',
-        ]);*/
     }
     public function cast($object)
     {
