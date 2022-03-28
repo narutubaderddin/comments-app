@@ -17,6 +17,7 @@ What things you need to install the software and how to install them.
 cd api
 composer install
 php bin/console doctrine:database:create
+php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 symfony server:start
 ```
